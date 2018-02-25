@@ -3,10 +3,12 @@ var bcrypt = require('bcrypt');
 
 var userSchema = mongoose.Schema({
     username: {
-        type: String
+        type: String,
+        required: true
     },
     password: {
-        type: String
+        type: String,
+        required: true  
     }
 });
 
@@ -18,10 +20,5 @@ module.exports.getByUsername = function(username, callback) {
 }
 
 module.exports.comparePassword = function(userPassword, hash, callback) {
-    bcrypt.compare(userPassword, hash, function(err, isMatch) {
-        if(err) {
-            throw err;
-        }
-        callback(null, isMatch);
-    });
+    bcrypt.compare(userPassword, hash, callback);
 }
