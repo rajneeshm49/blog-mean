@@ -6,7 +6,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class ArticlesService {
-    url = 'http://localhost:3000/api';
+    url = '/api';
 
     constructor(private http: HttpClient) {}
 
