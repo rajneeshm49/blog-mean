@@ -8,7 +8,7 @@ export class UserService {
     constructor(private http: HttpClient) {}
 
     login(userCredentials): Observable<any> {
-        const loginUrl = '/login';
+        const loginUrl = '/api/user/login';
         const httpOptions= {
             headers: new HttpHeaders({'Content-Type': 'application/json'})
         };

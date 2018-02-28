@@ -9,20 +9,21 @@ mongoose.connect("mongodb://localhost/blog");
 
 //including routes
 // var index = require('./routes/index');
-var api = require('./routes/api');
+var articles = require('./routes/articles');
 var user = require('./routes/user');
 
 //using MW
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, "dist")));
-app.use(passport.initialize());
-app.use(passport.session());
 
-app.use('/', user);
+app.use(passport.initialize());
+// app.use(passport.session());
+
+app.use('/api/user', user);
 
 //The angular will call /api thro' its service then the below part will be executed
-app.use('/api', api);
+app.use('/api/articles', articles);
 
 app.set('port', process.env.PORT || 8000);
 

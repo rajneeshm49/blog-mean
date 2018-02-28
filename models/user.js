@@ -22,3 +22,7 @@ module.exports.getByUsername = function(username, callback) {
 module.exports.comparePassword = function(userPassword, hash, callback) {
     bcrypt.compare(userPassword, hash, callback);
 }
+
+module.exports.getUserById = function(id, callback) {
+	User.findById(id, callback);
+}
