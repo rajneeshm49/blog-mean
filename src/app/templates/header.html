@@ -29,8 +29,8 @@
                    </ul>
                  </li>	
                  <li routerLinkActive="current"><a routerLink="/create-blog">Create Blog</a></li>		      	
-                 <li><a routerLink="/login">Login</a></li>
-                 <li><a routerLink="/logout">Logout</a></li>
+                 <li *ngIf="!isLoggedIn"><a routerLink="/login">Login</a></li>
+                 <li *ngIf="isLoggedIn"><a routerLink="/logout">Logout</a></li>
                 </ul> <!-- end #nav -->			   	 
                 <!--span *ngIf="sess">Welcome {{sess.username}}</span-->
 
