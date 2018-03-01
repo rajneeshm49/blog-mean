@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
@@ -11,7 +10,7 @@ export class UserService {
     token;
     isLoggedIn = false;
 
-    constructor(private http: HttpClient, private router: Router) {}
+    constructor(private http: HttpClient) {}
 
     login(userCredentialsBody): Observable<any> {
         const loginUrl = '/api/user/login';
@@ -19,15 +18,8 @@ export class UserService {
             headers: new HttpHeaders({'Content-Type': 'application/json'})
         };
         return this.http.post(loginUrl, userCredentialsBody, httpOptions).pipe(
-            tap((res:any) => {
-            if(res.success === true) {
-                this.isLoggedIn = true;
-                this.token = res.token;
-                this.router.navigate(['/']);
-            } else {
-                console.log(res);
-            }
-        }
+            tap((res:any) => 
+            console.log('got output in user service')
         ),
 
         catchError(this.handleError<any>('login done'))

@@ -38,7 +38,7 @@ router.post("/login", function(req, res) {
       return res.status(500).json({success: false, message: err});
     }
     if(!user) {
-      return res.status(403).json({success: false, message: 'User not found'});
+      return res.json({success: false, message: 'User not found'});
     }
     User.comparePassword(req.body.password, user.password, function(err, isMatch) {
       if(err) {
