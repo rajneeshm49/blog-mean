@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
 import { LoginComponent } from './login.component';
+import { LogoutComponent } from './logout.component';
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './categories.component';
 import { CreateBlogComponent } from './create-blog.component';
@@ -19,7 +20,7 @@ import { UserService } from './services/user.service'
 
 @NgModule({
   declarations: [
-    AppComponent, HeaderComponent, LoginComponent, FooterComponent, HomeComponent, CategoriesComponent, CreateBlogComponent
+    AppComponent, HeaderComponent, LoginComponent, LogoutComponent, FooterComponent, HomeComponent, CategoriesComponent, CreateBlogComponent
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
