@@ -15,6 +15,4 @@ export class HeaderComponent implements DoCheck {
     ngDoCheck() {
         this.isLoggedIn = this.userService.isLoggedIn;
     }
-
-
 }

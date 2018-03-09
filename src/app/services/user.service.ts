@@ -19,10 +19,10 @@ export class UserService {
         };
         return this.http.post(loginUrl, userCredentialsBody, httpOptions).pipe(
             tap((res:any) => 
-            console.log('got output in user service')
-        ),
+                console.log('got output in user service')
+            ),
 
-        catchError(this.handleError<any>('login done'))
+            catchError(this.handleError<any>('login done'))
         );
 
     }

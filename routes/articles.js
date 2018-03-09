@@ -9,4 +9,16 @@ router.get('/', function(req, res) {
     })
 })
 
+router.post('/createBlog', function(req, res) {
+    if(!req.body.title || !req.body.description) {
+        return res.status(200).json({success: false, message: 'Title/Description missing'})
+    }
+    Article.createBlog(req.body, function(err) {
+        if(err) {
+            return res.status(500).json({success: false, message:err});
+        }
+        return res.status(200).json({success:true, message: 'Blog created successfully'});
+    })
+
+})
 module.exports = router;
