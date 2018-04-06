@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
 })
 
 export class CreateBlogComponent {
-    blog = {title: '', description: ''};
+    blog = {title: '', category: '', description: ''};
     error_msg = '';
+    categories = ["Parenting", "Technical", "Other"];
 
     constructor(private articlesService: ArticlesService, private router: Router) { }
 

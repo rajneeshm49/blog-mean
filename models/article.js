@@ -30,13 +30,14 @@ var ArticleSchema = mongoose.Schema({
 var Article = module.exports = mongoose.model('Article', ArticleSchema);
 
 module.exports.getLatestArticles = function(callback) {
-    Article.find(callback).sort({created_by: -1});
+    Article.find(callback).sort({created: -1});
 }
 
-module.exports.createBlog = function(blogBody, callback) {
+module.exports.createBlog = function(blogBody, username, callback) {
     var desc = blogBody.description;
     desc = desc.replace(/^<p>/i, '');
     desc = desc.replace(/<\/p>$/i, '');
-    myBlog = new Article({title: blogBody.title, description: desc, category: "Random", created_by: "Rajneesh", modified_by: "", created: new Date(), modified: "", is_deleted: false});
+    myBlog = new Article({title: blogBody.title, description: desc, category: blogBody.category, created_by: username, 
+        modified_by: "", created: new Date(), modified: "", is_deleted: false});
     myBlog.save(callback);
 }

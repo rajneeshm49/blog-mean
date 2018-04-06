@@ -9,10 +9,16 @@ import { UserService } from './services/user.service';
 export class HeaderComponent implements DoCheck {
 
     private isLoggedIn;
+    private name;
 
     constructor(private userService: UserService) { }
 
     ngDoCheck() {
-        this.isLoggedIn = this.userService.isLoggedIn;
+        if(localStorage.getItem('blogosphere_user_token')) {
+            this.isLoggedIn = true;
+            this.name = localStorage.getItem('blogosphere_user');
+        } else {
+            this.isLoggedIn = false;
+        }
     }
 }

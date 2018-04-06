@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './services/user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,11 +7,11 @@ import { Router } from '@angular/router';
 
 export class LogoutComponent implements OnInit {
 
-    constructor(private userService: UserService, private router: Router) { }
+    constructor(private router: Router) { }
     
     ngOnInit() {
-        this.userService.isLoggedIn = false;
-        this.userService.token = '';
+        localStorage.removeItem('blogosphere_user_token');
+        localStorage.removeItem('blogosphere_user');
         this.router.navigate(['/login']);
     }
 }

@@ -26,3 +26,13 @@ module.exports.comparePassword = function(userPassword, hash, callback) {
 module.exports.getUserById = function(id, callback) {
 	User.findById(id, callback);
 }
+
+module.exports.createUser = function(newUser, callback) {
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(newUser.password, salt, function(err, hash) {
+            // Store hash in your password DB.
+            newUser.password = hash;
+            newUser.save(callback);       
+        });
+    });
+}

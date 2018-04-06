@@ -16,12 +16,14 @@ export class ArticlesService {
 
     createBlog(articleBody): Observable<any> {
         let httpOptions = {
-            headers: new HttpHeaders({'content-type': 'application/json'})
+            headers: new HttpHeaders({
+                'content-type': 'application/json',
+                'authorization': 'bearer ' + localStorage.getItem('blogosphere_user_token')
+            })
         }
         return this.http.post(`${this.url}/createBlog`, articleBody, httpOptions).pipe(
             tap((res:any) => {
                 console.log('article created without any error');
-                console.log(res);
             }
             ),
             catchError(this.handleError('article created'))

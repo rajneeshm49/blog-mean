@@ -9,22 +9,36 @@ export class UserService {
 
     token;
     isLoggedIn = false;
+    name;
+    userApiUrl = '/api/user';
 
     constructor(private http: HttpClient) {}
 
     login(userCredentialsBody): Observable<any> {
-        const loginUrl = '/api/user/login';
         const httpOptions= {
             headers: new HttpHeaders({'Content-Type': 'application/json'})
         };
-        return this.http.post(loginUrl, userCredentialsBody, httpOptions).pipe(
+        return this.http.post(`${this.userApiUrl}/login`, userCredentialsBody, httpOptions).pipe(
             tap((res:any) => 
                 console.log('got output in user service')
             ),
 
-            catchError(this.handleError<any>('login done'))
+            catchError(this.handleError<any>('Error while User Login'))
         );
+    }
 
+    register(userDataBody) {
+
+        const httpOptions = {
+            headers: new HttpHeaders({'Content-Type': 'application/json'})
+        };
+        return this.http.post(`${this.userApiUrl}/register`, userDataBody, httpOptions).pipe(
+            tap((res:any) => 
+                console.log('registration done')
+            ),
+
+            catchError(this.handleError<any>('Error while User registration.'))
+        );
     }
 
     /**

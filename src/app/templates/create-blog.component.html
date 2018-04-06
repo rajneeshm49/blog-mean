@@ -1,10 +1,19 @@
 <div class="container">
     <form #blogForm="ngForm" (ngSubmit)="onSubmit();">
         <div class="form-group row" style="padding-top:50px;">
-            <label for="title" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Title</label>
+            <label for="title" class="col-sm-2 col-lg-2 col-xl-2 col-form-label">Title</label>
             <div class="col-sm-10 col-lg-10 col-xl-10">
                 <input type="text" name="title" id="title" class="white-textbox" [(ngModel)]="blog.title" #title="ngModel" placeholder="Enter Title" required>
                 <div class="alert alert-danger" [hidden]="title.pristine || title.valid">Please enter Title</div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="category" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Category</label>
+            <div class="col-sm-10 col-lg-10 col-xl-10">
+                <select name="category" class="white-textbox" [(ngModel)]="blog.category" #category="ngModel" required>
+                    <option *ngFor="let category of categories" value="{{category}}">{{category}}</option>
+                </select>
+                <div class="alert alert-danger" [hidden]="category.pristine || category.valid">Please select category</div>
             </div>
         </div>
         <div class="form-group row">

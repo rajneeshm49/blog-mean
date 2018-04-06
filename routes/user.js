@@ -49,10 +49,35 @@ router.post("/login", function(req, res) {
       }
 
       //since user is authorized, we will return him a token he can use for further requests
-      var payload = {id: user.id};
+      var payload = {id: user.id, username: user.username};
       var token = jwt.sign(payload, jwtOptions.secretOrKey);
-      return res.json({success: true, message: 'User successfully logged in', token: token});
+      var dec = jwt.verify(token, jwtOptions.secretOrKey);
+      return res.json({success: true, message: 'User successfully logged in', name: user.username, token: token});
     })
+  })
+})
+
+router.post('/register', function(req, res) {
+  if(!req.body.firstname || !req.body.lastname || !req.body.email || !req.body.username || !req.body.password || !req.body.confirm_pwd) {
+    return res.json({success: false, message: 'Please pass all the fields'});
+  }
+  if(req.body.password != req.body.confirm_pwd) {
+    return res.json({success: false, message: 'Password did not match with confirm password'})
+  }
+
+  var newUser = new User({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    email: req.body.email,
+    username:req.body.email,
+    password: req.body.password
+  });
+  
+  User.createUser(newUser, function(err) {
+    if(err) {
+      return res.status(500).json({success: false, message:err});
+    }
+    return res.json({success:true, message: "User successfully registered"});
   })
 })
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from './services/articles.service';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './templates/home.component.html'
@@ -7,10 +8,16 @@ import { ArticlesService } from './services/articles.service';
 
 export class HomeComponent implements OnInit {
     private articles;
-    constructor(private articlesService: ArticlesService) {}
+    constructor(private articlesService: ArticlesService, private router: Router) {}
   
     ngOnInit() {
-      this.getAllArticles();
+
+      //if user is logged in, we will show him the articles, otherwise redirect him to login page
+      if(localStorage.getItem('blogosphere_user_token')) {
+        this.getAllArticles();
+      } else {
+        this.router.navigate(['/login']);
+      }
     }
   
     getAllArticles(): void {

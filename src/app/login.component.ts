@@ -16,8 +16,8 @@ export class LoginComponent {
         this.userService.login(this.user).subscribe(
             res => {
                 if(res.success === true) {
-                    this.userService.isLoggedIn = true;
-                    this.userService.token = res.token;
+                    localStorage.setItem('blogosphere_user_token', res.token);
+                    localStorage.setItem('blogosphere_user', res.name);                
                     this.router.navigate(['/home']); 
                     
                 } else {
