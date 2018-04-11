@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { UserService } from './services/user.service';
 import { Router } from '@angular/router';
+import { MessageService } from './services/message.service';
 
 @Component({
     templateUrl: './templates/register.component.html'
@@ -11,7 +12,7 @@ export class RegisterComponent {
     errorMsg = '';
     successMsg = '';
 
-    constructor(private userService: UserService, private router: Router) {}
+    constructor(private userService: UserService, private messageService: MessageService, private router: Router) {}
 
     onSubmit():void {
         this.successMsg = '';
@@ -21,7 +22,7 @@ export class RegisterComponent {
                 this.errorMsg = res.message;
             } else {
                 this.successMsg = res.message;
-                console.log(this.successMsg);
+                this.messageService.show_msg = 'User successfully registered. Please login to explore Blogosphere';
                 this.router.navigate(['/login']);
 
             }

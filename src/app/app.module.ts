@@ -18,6 +18,7 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { ArticlesService } from './services/articles.service';
 import { UserService } from './services/user.service'
+import { MessageService } from './services/message.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { UserService } from './services/user.service'
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
-  providers: [ ArticlesService, UserService ],
+  providers: [ ArticlesService, UserService, MessageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

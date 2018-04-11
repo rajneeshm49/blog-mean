@@ -52,7 +52,7 @@ router.post("/login", function(req, res) {
       var payload = {id: user.id, username: user.username};
       var token = jwt.sign(payload, jwtOptions.secretOrKey);
       var dec = jwt.verify(token, jwtOptions.secretOrKey);
-      return res.json({success: true, message: 'User successfully logged in', name: user.username, token: token});
+      return res.json({success: true, message: 'User successfully logged in', name: user.firstname + ' ' + user.lastname, token: token});
     })
   })
 })
@@ -69,7 +69,7 @@ router.post('/register', function(req, res) {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
     email: req.body.email,
-    username:req.body.email,
+    username:req.body.username,
     password: req.body.password
   });
   
