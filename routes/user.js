@@ -46,8 +46,6 @@ router.post("/login", function(req, res) {
       }
       if(!isMatch) {
         return res.json({success: false, message: "Incorrect Password"})
-      } else {
-        echo 'rajneesh';
       }
 
       //since user is authorized, we will return him a token he can use for further requests
