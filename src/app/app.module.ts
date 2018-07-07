@@ -9,6 +9,9 @@ import { LogoutComponent } from './logout.component';
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './categories.component';
 import { CreateBlogComponent } from './create-blog.component';
+import { EditBlogComponent } from './edit-blog.component';
+import { ArticleComponent } from './article.component';
+import { SidebarComponent } from './sidebar.component';
 import { FooterComponent } from './footer.component';
 
 import { FormsModule } from '@angular/forms';
@@ -17,17 +20,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { ArticlesService } from './services/articles.service';
-import { UserService } from './services/user.service'
+import { UserService } from './services/user.service';
+import { CategoryService } from './services/category.service';
 import { MessageService } from './services/message.service';
+
+import { ReadMorePipe } from './pipes/read-more.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent, HeaderComponent, LoginComponent, LogoutComponent, FooterComponent, HomeComponent, CategoriesComponent, CreateBlogComponent, RegisterComponent
+    AppComponent, HeaderComponent, LoginComponent, LogoutComponent, FooterComponent, HomeComponent, CategoriesComponent, CreateBlogComponent, EditBlogComponent, SidebarComponent, 
+    RegisterComponent, ArticleComponent, ReadMorePipe
   ],
   imports: [
     BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
-  providers: [ ArticlesService, UserService, MessageService ],
+  providers: [ ArticlesService, UserService, CategoryService, MessageService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

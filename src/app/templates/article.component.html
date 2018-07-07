@@ -1,0 +1,18 @@
+<div id="main" class="eight columns">
+    <article class="entry">
+        <header class="entry-header">
+            <h2 class="entry-title">{{articleDetail.title}}&nbsp;&nbsp;<small><a routerLink="/article/edit/5adac20d6841e8189c188bd5" title="Edit Article"><img src="assets/img/edit.png" /></a></small></h2> 				 
+            <div class="entry-meta">
+                <ul>
+                    <li>{{articleDetail.created | date:'medium'}}</li>
+                    <span class="meta-sep">&bull;</span>								
+                    <li><a href="#" title="" rel="category tag">{{articleDetail.category}}</a></li>
+                    <span class="meta-sep">&bull;</span>
+                    <li>{{articleDetail.created_by}}</li>
+                </ul>
+            </div> 
+        </header> 
+        <div class="entry-content" [innerHTML]="articleDetail.description"></div> 
+    </article>  
+</div>
+<app-sidebar></app-sidebar>

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 
 export class CreateBlogComponent {
-    blog = {title: '', category: '', description: ''};
+    blog = {title: '', category: '', isPublic: true, description: ''};
     error_msg = '';
     categories = ["Parenting", "Technical", "Other"];
 

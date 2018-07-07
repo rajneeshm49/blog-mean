@@ -31,6 +31,7 @@ passport.use(new jwtStrategy(jwtOptions, function(jwt_payload, done) {
 router.post("/login", function(req, res) {
 
   if(!req.body.username || !req.body.password) {
+    console.log(req.body);
     return res.json({success: false, message: 'Username/Password missing'});
   }
   User.getByUsername(req.body.username, function(err, user) {

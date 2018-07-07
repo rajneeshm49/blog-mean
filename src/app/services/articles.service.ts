@@ -10,8 +10,34 @@ export class ArticlesService {
 
     constructor(private http: HttpClient) {}
 
-    getAllArticles(): Observable<any> {
-        return this.http.get(this.url);
+    getAllArticles(category): Observable<any> {
+        let httpOptions = {
+            headers: new HttpHeaders({
+                'content-type': 'application/json',
+                'authorization': 'bearer ' + localStorage.getItem('blogosphere_user_token')
+            }),
+            params: {
+                category: category
+            }
+        }
+        return this.http.get(this.url, httpOptions).pipe(
+            tap((res:any) => {
+                console.log('Articles fetched')
+            }), catchError(this.handleError('get Articles'))
+        );
+    }
+
+    getArticleDetail(id): Observable<any> {
+        return this.http.get(`${this.url}/detail`, {
+            params: {
+                id: id
+            }
+        }).pipe(
+            tap((res:any) => {
+                console.log('article detail fetched without any error');
+            }),
+            catchError(this.handleError('article detail'))
+        )
     }
 
     createBlog(articleBody): Observable<any> {
@@ -27,6 +53,22 @@ export class ArticlesService {
             }
             ),
             catchError(this.handleError('article created'))
+        )
+    }
+
+    editBlog(articleBody):Observable<any> {
+        let httpOptions = {
+            headers: new HttpHeaders({
+                'content-type': 'application/json',
+                'authorization': 'bearer ' + localStorage.getItem('blogosphere_user_token')
+            })
+        }
+        
+        return this.http.put(`${this.url}/editBlog`, articleBody, httpOptions).pipe(
+            tap((res:any) => {
+                console.log('article updated without any error');
+            }),
+            catchError(this.handleError('article updated'))
         )
     }
 

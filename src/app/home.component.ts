@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticlesService } from './services/articles.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
     templateUrl: './templates/home.component.html'
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 
 export class HomeComponent implements OnInit {
     private articles;
-    constructor(private articlesService: ArticlesService, private router: Router) {}
+
+    constructor(private articlesService: ArticlesService, private router: Router, private route: ActivatedRoute ) {}
   
     ngOnInit() {
 
@@ -21,6 +23,22 @@ export class HomeComponent implements OnInit {
     }
   
     getAllArticles(): void {
-      this.articlesService.getAllArticles().subscribe(articles => this.articles = articles);
+
+      this.route.params.subscribe(params => {
+        const id = this.route.snapshot.paramMap.get('id');
+
+        this.articlesService.getAllArticles(typeof(id) == 'undefined'?'all':id).subscribe(res => {
+          if(res.success == true) {
+            this.articles = res.data;
+          } else {
+            this.articles = [];
+          }
+        });
+      })
+      
+    }
+
+    redirectToDetailPage(article_id) {
+      this.router.navigate([`/article/${article_id}`]);
     }
 }
