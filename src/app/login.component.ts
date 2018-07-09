@@ -17,7 +17,8 @@ export class LoginComponent {
             res => {
                 if(res.success === true) {
                     localStorage.setItem('blogosphere_user_token', res.token);
-                    localStorage.setItem('blogosphere_user', res.name);                
+                    localStorage.setItem('blogosphere_user', res.name);
+                    localStorage.setItem('blogosphere_username', res.username);                
                     this.router.navigate(['/home']); 
                     
                 } else {

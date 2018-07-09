@@ -61,6 +61,10 @@ router.put('/editBlog', passport.authenticate('jwt', {'session': false}), functi
     //In the below line we decode the JWT token(using our secret key) that user has passed. After decoding it will contain all the keys that user had 
     //used while encoding it using 'jwt.sign'. After decoding it we will have username of the user that we will be sending to model
     decoded = jwt.verify(auth_key, 'RajneeshMishra');
+    //if the article is not created by this user then give this message 
+    if(decoded.username != req.body.created_by) {
+        return res.status(404).json({success: false, message: 'You do not have rights to edit this article'});
+    }
     Article.editBlog(req.body, decoded.username, function(err) {
         if(err) {
             return res.status(500).json({success: false, message:err});

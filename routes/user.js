@@ -53,7 +53,7 @@ router.post("/login", function(req, res) {
       var payload = {id: user.id, username: user.username};
       var token = jwt.sign(payload, jwtOptions.secretOrKey);
       var dec = jwt.verify(token, jwtOptions.secretOrKey);
-      return res.json({success: true, message: 'User successfully logged in', name: user.firstname + ' ' + user.lastname, token: token});
+      return res.json({success: true, message: 'User successfully logged in', name: user.firstname + ' ' + user.lastname, username: user.username, token: token});
     })
   })
 })
