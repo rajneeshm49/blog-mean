@@ -10,6 +10,7 @@ export class ArticlesService {
 
     constructor(private http: HttpClient) {}
 
+    //get all articles
     getAllArticles(category): Observable<any> {
         let httpOptions = {
             headers: new HttpHeaders({
