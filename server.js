@@ -28,6 +28,6 @@ app.use('/api/articles', articles);
 
 app.set('port', process.env.PORT || 8080); 
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), "0.0.0.0", function() {
     console.log("Server is listening on port "+ app.get('port'));
 });
