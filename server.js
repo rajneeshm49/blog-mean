@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 
 var app = express();
-mongoose.connect("mongodb://localhost/blog");
+// mongoose.connect("mongodb://localhost/blog");
+mongoose.connect("mongodb://rajneesh:rajneesh1@ds141720.mlab.com:41720/blog-mean");
 
 //including routes
 // var index = require('./routes/index');
