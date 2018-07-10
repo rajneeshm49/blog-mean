@@ -26,8 +26,12 @@ app.use('/api/user', user);
 //The angular will call /api thro' its service then the below part will be executed
 app.use('/api/articles', articles);
 
-app.set('port', process.env.PORT || 8080); 
+// app.set('port', process.env.PORT || 8080); 
 
-app.listen(app.get('port'), "0.0.0.0", function() {
-    console.log("Server is listening on port "+ app.get('port'));
+// app.listen(app.get('port'), "0.0.0.0", function() {
+//     console.log("Server is listening on port "+ app.get('port'));
+// });
+
+app.listen(process.env.PORT || 5000, function() {
+    console.log("Server started.......");
 });
