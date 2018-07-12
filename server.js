@@ -32,6 +32,6 @@ app.use('/api/articles', articles);
 //     console.log("Server is listening on port "+ app.get('port'));
 // });
 
-app.listen(process.env.PORT || 5000, "0.0.0.0", function() {
+app.listen(process.env.PORT || 5000, "127.0.0.1", function() {
     console.log("Server started.......");
 });
