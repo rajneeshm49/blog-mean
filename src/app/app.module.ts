@@ -19,6 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 import { ArticlesService } from './services/articles.service';
 import { UserService } from './services/user.service';
 import { CategoryService } from './services/category.service';
@@ -32,7 +34,7 @@ import { ReadMorePipe } from './pipes/read-more.pipe';
     RegisterComponent, ArticleComponent, ReadMorePipe
   ],
   imports: [
-    BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FlashMessagesModule.forRoot(), FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
   ],
   providers: [ ArticlesService, UserService, CategoryService, MessageService ],
   bootstrap: [AppComponent]

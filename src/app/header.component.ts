@@ -1,6 +1,7 @@
 import { Component, DoCheck } from '@angular/core';
 import { UserService } from './services/user.service';
 import { MessageService } from './services/message.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
     selector: 'app-header',
@@ -13,12 +14,12 @@ export class HeaderComponent implements DoCheck {
     private name;
     private message;
 
-    constructor(private userService: UserService, private messageService: MessageService) { }
+    constructor(private userService: UserService, private messageService: MessageService, private flashMessage: FlashMessagesService) { }
 
     ngDoCheck() {
         if(this.messageService.show_msg != '') {
-            this.message = this.messageService.show_msg;
-            this.messageService.clearMessage();
+            this.flashMessage.show(this.messageService.show_msg, { cssClass: 'alert-success', timeout: 100000 });
+            this.messageService.show_msg = '';
         }
         if(localStorage.getItem('blogosphere_user_token')) {
             this.isLoggedIn = true;
