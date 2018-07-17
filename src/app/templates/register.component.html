@@ -1,53 +1,77 @@
 <div class="container">
-    <form #registerForm="ngForm">
+    <form role="form" #registerForm="ngForm">
         <div *ngIf="errorMsg && !registerForm.dirty" class="alert alert-danger">{{errorMsg}}</div>
-        <div class="form-group row" style="padding-top:50px;">
-            <label for="firstname" class="col-sm-2 col-lg-2 col xl-2 col-form-label">First Name</label>
-            <div class="col-sm-10 col-lg-10 col-xl-10">
-                <input type="text" name="firstname" id="firstname" class="white-textbox"  [(ngModel)]="user.firstname" #firstname="ngModel" required placeholder="Enter First Name">
-                <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">First Name is required</div>
-            </div>
-        </div>
-        <div class="form-group row" style="padding-top:50px;">
-            <label for="lastname" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Last Name</label>
-            <div class="col-sm-10 col-lg-10 col-xl-10">
-                <input type="text" name="lastname" id="lastname" class="white-textbox"  [(ngModel)]="user.lastname" #lastname="ngModel" required placeholder="Enter First Name">
-                <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">Last Name is required</div>
-            </div>
-        </div>
-        <div class="form-group row" style="padding-top:50px;">
-            <label for="email" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Email</label>
-            <div class="col-sm-10 col-lg-10 col-xl-10">
-                <input type="email" name="email" id="email" class="white-textbox"  [(ngModel)]="user.email" #email="ngModel" required placeholder="Enter your Email Id">
-                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email is required</div>
-            </div>
-        </div>
-        <div class="form-group row" style="padding-top:50px;">
-            <label for="username" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Username</label>
-            <div class="col-sm-10 col-lg-10 col-xl-10">
-                <input type="text" name="username" id="username" class="white-textbox"  [(ngModel)]="user.username" #username="ngModel" required placeholder="Enter your Username">
+        <h2>Please Sign Up</h2>
+            <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="firstname" id="firstname" class="form-control input-lg"  [(ngModel)]="user.firstname" #firstname="ngModel" required placeholder="Enter First Name" tabindex="1">
+                            <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="text" name="lastname" id="lastname" class="form-control input-lg"  [(ngModel)]="user.lastname" #lastname="ngModel" required placeholder="Enter Last Name" tabindex="2">
+                            <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">Last Name is required</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control input-lg"  [(ngModel)]="user.email" #email="ngModel" required placeholder="Enter your Email Id" tabindex="3">
+                    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email is required</div>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" id="username" class="form-control input-lg"  [(ngModel)]="user.username" #username="ngModel" required placeholder="Enter your Username" tabindex="4">
                 <div [hidden]="username.valid || username.pristine" class="alert alert-danger">Username is required</div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="password" id="password" class="form-control input-lg" [(ngModel)]="user.password" #password="ngModel" required placeholder="Enter your Password" tabindex="5">
+                            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password is required</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <input type="password" name="confirm_pwd" id="confirm_pwd" class="form-control input-lg" [(ngModel)]="user.confirm_pwd" #confirm_pwd="ngModel" required placeholder="Please confirm your Password" tabindex="6">
+                            <div [hidden]="confirm_pwd.valid || confirm_pwd.pristine" class="alert alert-danger">Please confirm your password</div>
+                        </div>
+                    </div>
+                </div>
+                                
+                <hr class="colorgraph">
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="7" [disabled]="!registerForm.valid || registerForm.pristine" (click)="onSubmit(); registerForm.form.markAsPristine();">Register</button>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <a routerLink="/login" class="btn btn-success btn-block btn-lg">Already a Member? Sign In</a>
+                    </div>
+                </div>
+            </form>
+        
+    <!-- Modal -->
+    <!--div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+                </div>
             </div>
         </div>
-        <div class="form-group row">
-            <label for="password" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Password</label>
-            <div class="col-sm-10 col-lg-10 col-xl-10">
-                <input type="password" name="password" id="password" class="white-textbox" [(ngModel)]="user.password" #password="ngModel" required placeholder="Enter your Password">
-                <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password is required</div>
-            </div>
-        </div>
-        <div class="form-group row">
-            <label for="confirm_pwd" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Confirm Password</label>
-            <div class="col-sm-10 col-lg-10 col-xl-10">
-                <input type="password" name="confirm_pwd" id="confirm_pwd" class="white-textbox" [(ngModel)]="user.confirm_pwd" #confirm_pwd="ngModel" required placeholder="Please confirm your Password">
-                <div [hidden]="confirm_pwd.valid || confirm_pwd.pristine" class="alert alert-danger">Please confirm your password</div>
-            </div>
-        </div>
-        <div class="form-group row" style="padding-top:50px;">
-            <div class="col-sm-2 col-lg-2 col xl-2 col-form-label">&nbsp;</div>
-            <div>
-                <button type="submit" class="btn btn-success" [disabled]="!registerForm.valid || registerForm.pristine" (click)="onSubmit(); registerForm.form.markAsPristine();">Submit</button>
-            </div>
-        </div>
-    </form>
-</div>
+    </div--><!-- /.modal -->
+    </div>
