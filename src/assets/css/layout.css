@@ -68,7 +68,7 @@ header .header-content {
 
 /* header logo */
 header h1#logo-text { 
-	margin: 0; 
+	margin: 40px 0px 0px 0px; 
 	padding: 0; 
 
 	/* change the values of top and left to adjust the position of the logo text */
@@ -78,7 +78,7 @@ header h1#logo-text {
 header h1#logo-text a {	 
 	margin: 0; 
 	padding: 0;
-	font: normal 75px Georgia, Serif;
+	font: normal 57px Georgia, Serif;
 	letter-spacing: -5px;
 	color: #93b876;
 	text-decoration: none;

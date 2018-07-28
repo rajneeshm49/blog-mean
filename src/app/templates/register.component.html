@@ -3,49 +3,45 @@
         <div *ngIf="errorMsg && !registerForm.dirty" class="alert alert-danger">{{errorMsg}}</div>
         <h2>Please Sign Up</h2>
             <hr class="colorgraph">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="firstname" id="firstname" class="form-control input-lg"  [(ngModel)]="user.firstname" #firstname="ngModel" required placeholder="Enter First Name" tabindex="1">
-                            <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">First Name is required</div>
-                        </div>
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <input type="text" name="firstname" id="firstname" class="form-control input-lg"  [(ngModel)]="user.firstname" #firstname="ngModel" required placeholder="Enter First Name" tabindex="1">
+                        <div [hidden]="firstname.valid || firstname.pristine" class="alert alert-danger">First Name is required</div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="lastname" id="lastname" class="form-control input-lg"  [(ngModel)]="user.lastname" #lastname="ngModel" required placeholder="Enter Last Name" tabindex="2">
-                            <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">Last Name is required</div>
-                        </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <input type="text" name="lastname" id="lastname" class="form-control input-lg"  [(ngModel)]="user.lastname" #lastname="ngModel" required placeholder="Enter Last Name" tabindex="2">
+                        <div [hidden]="lastname.valid || lastname.pristine" class="alert alert-danger">Last Name is required</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control input-lg"  [(ngModel)]="user.email" #email="ngModel" required placeholder="Enter your Email Id" tabindex="3">
-                    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email is required</div>
+                    <div class="col-xs-12 col-sm-10 col-md-10">
+                        <input type="email" name="email" id="email" class="form-control input-lg"  [(ngModel)]="user.email" #email="ngModel" required placeholder="Enter your Email Id" tabindex="3">
+                        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">Email is required</div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="username" id="username" class="form-control input-lg"  [(ngModel)]="user.username" #username="ngModel" required placeholder="Enter your Username" tabindex="4">
-                <div [hidden]="username.valid || username.pristine" class="alert alert-danger">Username is required</div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control input-lg" [(ngModel)]="user.password" #password="ngModel" required placeholder="Enter your Password" tabindex="5">
-                            <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password is required</div>
-                        </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10">
+                        <input type="text" name="username" id="username" class="form-control input-lg"  [(ngModel)]="user.username" #username="ngModel" required placeholder="Enter your Username" tabindex="4">
+                        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">Username is required</div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="password" name="confirm_pwd" id="confirm_pwd" class="form-control input-lg" [(ngModel)]="user.confirm_pwd" #confirm_pwd="ngModel" required placeholder="Please confirm your Password" tabindex="6">
-                            <div [hidden]="confirm_pwd.valid || confirm_pwd.pristine" class="alert alert-danger">Please confirm your password</div>
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <input type="password" name="password" id="password" class="form-control input-lg" [(ngModel)]="user.password" #password="ngModel" required placeholder="Enter your Password" tabindex="6">
+                        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Password is required</div>
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5">
+                        <input type="password" name="confirm_pwd" id="confirm_pwd" class="form-control input-lg" [(ngModel)]="user.confirm_pwd" #confirm_pwd="ngModel" required placeholder="Confirm your Password" tabindex="6">
+                        <div [hidden]="confirm_pwd.valid || confirm_pwd.pristine" class="alert alert-danger">Please confirm your password</div>
                     </div>
                 </div>
                                 
                 <hr class="colorgraph">
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-5 col-md-5" style="padding-bottom:10px;">
                         <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="7" [disabled]="!registerForm.valid || registerForm.pristine" (click)="onSubmit(); registerForm.form.markAsPristine();">Register</button>
                     </div>
-                    <div class="col-xs-12 col-md-6">
+                    <div class="col-xs-12 col-sm-5 col-md-5" style="padding-bottom:10px;">
                         <a routerLink="/login" class="btn btn-success btn-block btn-lg">Already a Member? Sign In</a>
                     </div>
                 </div>
