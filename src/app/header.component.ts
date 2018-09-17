@@ -1,5 +1,8 @@
 import { Component, DoCheck } from '@angular/core';
 import { UserService } from './services/user.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { MyDialogComponent } from './my-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-header',
@@ -13,7 +16,7 @@ export class HeaderComponent implements DoCheck {
     private message;
     private i=0;
 
-    constructor(private userService: UserService) { }
+    constructor(private router: Router, private dialog: MatDialog) { }
 
     ngDoCheck() {
         
@@ -24,4 +27,18 @@ export class HeaderComponent implements DoCheck {
             this.isLoggedIn = false;
         }
     }
+
+    logoutDialog(): void {
+        const dialogRef = this.dialog.open(MyDialogComponent, {
+          data: {
+            ques: "Are you sure you want to logout?", button2msg: "Logout"
+          }
+        });
+    
+        dialogRef.afterClosed().subscribe(result => {
+          if(result) {
+            this.router.navigate(['/logout']);
+          }
+        });
+      }
 }

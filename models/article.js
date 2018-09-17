@@ -31,7 +31,7 @@ var ArticleSchema = mongoose.Schema({
 });
 
 var Article = module.exports = mongoose.model('Article', ArticleSchema);
-
+var AllArticles = '';
 module.exports.getLatestArticles = function(params, username, res, callback) {
     Promise.all([
 
@@ -44,10 +44,19 @@ module.exports.getLatestArticles = function(params, username, res, callback) {
     ]).then(articles => {
         const [selfArticles,othersArticles] = articles;
         articles = selfArticles.concat(othersArticles);
+        AllArticles = articles;
        return res.json({success: true, message: 'Articles successfully fetched', data: articles});
     }).catch(err=>{
         return res.json.status(500).json({success: false, message: err})
       })
+}
+
+module.exports.getAllCategories = function(callback) {
+    var ctgArr = {};
+    for(var artcnt = 0; artcnt<AllArticles.length; artcnt++) {
+        ctgArr[AllArticles[artcnt].category] = (ctgArr[AllArticles[artcnt].category] || 0) + 1;
+    }
+    callback(null, ctgArr);
 }
 
 module.exports.getArticleDetail = function(params, callback) {
@@ -76,15 +85,4 @@ module.exports.editBlog = function(blogBody, username, callback) {
         modified_by: username,
         modified: new Date()
     },'', callback);
-}
-
-module.exports.getAllCategories = function(callback) {
-    const aggregatorOpts = [{
-        $group: {
-            _id: "$category",
-            count: { $sum: 1 }
-        }
-    }]
-
-    Article.aggregate(aggregatorOpts, callback);
 }

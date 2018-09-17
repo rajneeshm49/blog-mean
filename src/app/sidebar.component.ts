@@ -9,12 +9,14 @@ import { CategoryService } from './services/category.service';
 export class SidebarComponent implements OnInit {
     
     categories;
+    keys;
     constructor(private categoryService: CategoryService) {}
 
     ngOnInit() {
         this.categoryService.getAllCategories().subscribe(catg => {
-            if(catg.success == 1) {
+            if(catg.success) {
                 this.categories = catg.data;
+                this.keys = Object.keys(catg.data);
             } else {
                 this.categories = [];
             }

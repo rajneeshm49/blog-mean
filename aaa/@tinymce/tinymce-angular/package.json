@@ -1,0 +1,58 @@
+{
+  "_args": [
+    [
+      "@tinymce/tinymce-angular@1.0.7",
+      "/home/rajneesh/Documents/home/blog-mean"
+    ]
+  ],
+  "_from": "@tinymce/tinymce-angular@1.0.7",
+  "_id": "@tinymce/tinymce-angular@1.0.7",
+  "_inBundle": false,
+  "_integrity": "sha512-ZuYUiOM1CgHysxXqlNfA6CplkHJ6Vr3OkoaOnTvkB9T/cMYdqt28J5PLZjELGt+LGPWtM4wZDzIn78Qh8UI47w==",
+  "_location": "/@tinymce/tinymce-angular",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@tinymce/tinymce-angular@1.0.7",
+    "name": "@tinymce/tinymce-angular",
+    "escapedName": "@tinymce%2ftinymce-angular",
+    "scope": "@tinymce",
+    "rawSpec": "1.0.7",
+    "saveSpec": null,
+    "fetchSpec": "1.0.7"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@tinymce/tinymce-angular/-/tinymce-angular-1.0.7.tgz",
+  "_spec": "1.0.7",
+  "_where": "/home/rajneesh/Documents/home/blog-mean",
+  "author": {
+    "name": "Ephox Inc"
+  },
+  "bugs": {
+    "url": "https://github.com/tinymce/tinymce-angular/issues"
+  },
+  "dependencies": {
+    "@angular/common": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "tslib": "^1.7.1"
+  },
+  "description": "Official TinyMCE Angular Component",
+  "es2015": "esm2015/tinymce-tinymce-angular.js",
+  "homepage": "https://github.com/tinymce/tinymce-angular#readme",
+  "license": "Apache-2.0",
+  "main": "bundles/tinymce-tinymce-angular.umd.js",
+  "metadata": "tinymce-tinymce-angular.metadata.json",
+  "module": "esm5/tinymce-tinymce-angular.js",
+  "name": "@tinymce/tinymce-angular",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinymce/tinymce-angular.git"
+  },
+  "typings": "tinymce-tinymce-angular.d.ts",
+  "version": "1.0.7"
+}

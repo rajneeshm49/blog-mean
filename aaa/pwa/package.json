@@ -1,0 +1,53 @@
+{
+  "_args": [
+    [
+      "pwa@1.8.0",
+      "/home/rajneesh/Documents/home/blog-mean"
+    ]
+  ],
+  "_from": "pwa@1.8.0",
+  "_id": "pwa@1.8.0",
+  "_inBundle": false,
+  "_integrity": "sha1-yZUuXpl3Vss7YpM45p85gYV4hAQ=",
+  "_location": "/pwa",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "pwa@1.8.0",
+    "name": "pwa",
+    "escapedName": "pwa",
+    "rawSpec": "1.8.0",
+    "saveSpec": null,
+    "fetchSpec": "1.8.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pwa/-/pwa-1.8.0.tgz",
+  "_spec": "1.8.0",
+  "_where": "/home/rajneesh/Documents/home/blog-mean",
+  "author": {
+    "name": "Brock Whitten",
+    "email": "brock@sintaxi.com"
+  },
+  "bin": {
+    "pwa": "./bin/pwa"
+  },
+  "bugs": {
+    "url": "https://github.com/sintaxi/pwa/issues"
+  },
+  "dependencies": {
+    "microplatform": "0.7.1"
+  },
+  "description": "open echosystem for an open web. (WIP)",
+  "homepage": "https://github.com/sintaxi/pwa#readme",
+  "license": "ISC",
+  "main": "./lib/pwa",
+  "name": "pwa",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sintaxi/pwa.git"
+  },
+  "version": "1.8.0"
+}

@@ -1,0 +1,93 @@
+{
+  "_args": [
+    [
+      "microplatform@0.7.1",
+      "/home/rajneesh/Documents/home/blog-mean"
+    ]
+  ],
+  "_from": "microplatform@0.7.1",
+  "_id": "microplatform@0.7.1",
+  "_inBundle": false,
+  "_integrity": "sha1-olNu094pM6L5ZLrBr7L+GrS49tQ=",
+  "_location": "/microplatform",
+  "_phantomChildren": {
+    "ansi-styles": "2.2.1",
+    "cliui": "3.2.0",
+    "code-point-at": "1.1.0",
+    "decamelize": "1.2.0",
+    "escape-string-regexp": "1.0.5",
+    "get-caller-file": "1.0.2",
+    "graceful-fs": "4.1.11",
+    "has-ansi": "2.0.0",
+    "klaw": "1.3.1",
+    "lodash.assign": "4.2.0",
+    "number-is-nan": "1.0.1",
+    "os-locale": "1.4.0",
+    "os-tmpdir": "1.0.2",
+    "path-is-absolute": "1.0.1",
+    "read-pkg-up": "1.0.1",
+    "require-directory": "2.1.1",
+    "require-main-filename": "1.0.1",
+    "rimraf": "2.6.2",
+    "set-blocking": "2.0.0",
+    "strip-ansi": "3.0.1",
+    "which-module": "1.0.0",
+    "y18n": "3.2.1"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "microplatform@0.7.1",
+    "name": "microplatform",
+    "escapedName": "microplatform",
+    "rawSpec": "0.7.1",
+    "saveSpec": null,
+    "fetchSpec": "0.7.1"
+  },
+  "_requiredBy": [
+    "/pwa"
+  ],
+  "_resolved": "https://registry.npmjs.org/microplatform/-/microplatform-0.7.1.tgz",
+  "_spec": "0.7.1",
+  "_where": "/home/rajneesh/Documents/home/blog-mean",
+  "author": {
+    "name": "Brock Whitten",
+    "email": "brock@sintaxi.com"
+  },
+  "bin": {
+    "mp": "./bin/mp"
+  },
+  "bugs": {
+    "url": "https://github.com/sintaxi/microplatform/issues"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "choices": "^0.1.3",
+    "express": "^4.14.0",
+    "fs-extra": "^0.30.0",
+    "inquirer": "^2.0.0",
+    "minimist": "^1.2.0",
+    "read": "^1.0.7",
+    "surge": "^0.19.0",
+    "terminal-menu": "^2.1.1",
+    "tmp": "0.0.29",
+    "yargs": "^5.0.0"
+  },
+  "description": "",
+  "devDependencies": {
+    "mocha": "^3.1.2",
+    "should": "^11.1.1"
+  },
+  "homepage": "https://github.com/sintaxi/microplatform#readme",
+  "license": "ISC",
+  "main": "lib/microplatform.js",
+  "name": "microplatform",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sintaxi/microplatform.git"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "version": "0.7.1"
+}

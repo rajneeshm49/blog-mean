@@ -25,7 +25,8 @@
         <div class="form-group row">
             <label for="description" class="col-sm-2 col-lg-2 col xl-2 col-form-label">Description</label>
             <div class="col-sm-10 col-lg-10 col xl-10">
-                <textarea [froalaEditor] name="description" id="description" cols="30" rows="10" class="form-control" [(ngModel)]="blog.description" #description="ngModel" required></textarea>
+                <textarea [froalaEditor]="editorOptions" name="description" id="description" cols="30" rows="10" 
+                class="form-control" [(ngModel)]="blog.description" #description="ngModel" required></textarea>
                 <div class="alert alert-danger" [hidden]="description.pristine || description.valid">Please enter Description</div>
             </div>
         </div>

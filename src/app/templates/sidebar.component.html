@@ -13,7 +13,7 @@
     <div class="widget widget_categories group">
         <h3>Categories.</h3> 
         <ul>
-             <li *ngFor="let category of categories"><a routerLink="/category/{{category._id}}" title="">{{category._id}}</a> ({{category.count}})</li>						
+             <li *ngFor="let key of keys"><a routerLink="/category/{{key}}" title="">{{key}}</a> ({{categories[key]}})</li>						
          </ul>
      </div>
 

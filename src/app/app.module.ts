@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
@@ -14,7 +15,7 @@ import { ArticleComponent } from './article.component';
 import { SidebarComponent } from './sidebar.component';
 import { FooterComponent } from './footer.component';
 
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
@@ -27,16 +28,22 @@ import { CategoryService } from './services/category.service';
 import { MessageService } from './services/message.service';
 
 import { ReadMorePipe } from './pipes/read-more.pipe';
+import { MyDialogComponent } from './my-dialog.component';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
     AppComponent, HeaderComponent, LoginComponent, LogoutComponent, FooterComponent, HomeComponent, CategoriesComponent, CreateBlogComponent, EditBlogComponent, SidebarComponent, 
-    RegisterComponent, ArticleComponent, ReadMorePipe
+    RegisterComponent, ArticleComponent, ReadMorePipe, MyDialogComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FlashMessagesModule.forRoot(), FroalaEditorModule.forRoot(), FroalaViewModule.forRoot()
+    BrowserModule, AppRoutingModule, FormsModule, HttpClientModule, FlashMessagesModule.forRoot(), 
+    FroalaEditorModule.forRoot(), FroalaViewModule.forRoot(), MaterialModule, BrowserAnimationsModule
   ],
   providers: [ ArticlesService, UserService, CategoryService, MessageService ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    MyDialogComponent
+  ]
 })
 export class AppModule { }
